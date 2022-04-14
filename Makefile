@@ -9,7 +9,9 @@ SRC = get_next_line.c get_next_line_utils.c main.c
 OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
-	$(CC) $(SRC) -o $(NAME) $(FLAGS)
+
+$(NAME):
+	$(CC) $(FLAGS) $(SRC) -o $(NAME)
 
 clean:
 	rm -f $(OBJ)

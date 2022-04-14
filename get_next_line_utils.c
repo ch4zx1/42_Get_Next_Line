@@ -40,8 +40,6 @@ char	*ft_strchr(const char *s, int c)
 	return (str);
 }
 
-
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	s_len;
@@ -97,3 +95,24 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (pos);
 }
 
+char	*ft_strdup(const char *s1)
+{
+	char	*p;
+	int	size;
+	int i;
+
+	size = (int)ft_strlen(s1) + 1;
+	p = malloc(size * sizeof(char));
+	if (p == NULL)
+	{
+		return (NULL);
+	}
+	
+	i = -1;
+
+	while(++i < size)
+	{
+		p[i] = s1[i];
+	}
+	return (p);
+}

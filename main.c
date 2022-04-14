@@ -17,8 +17,24 @@
 
 int main(void)
 {
+    char* teste;
     int fd;
     fd = open("teste", O_RDONLY);
-    get_next_line(fd);
+    teste = get_next_line(fd);
+
+    printf("%s", teste);
+
+    teste = get_next_line(fd);
+
+    printf("%s", teste);
+
+    teste = get_next_line(fd);
+
+    printf("%s", teste);
+
+    teste = get_next_line(fd);
+
+    printf("%s", teste);
+    
     return 0;
 }

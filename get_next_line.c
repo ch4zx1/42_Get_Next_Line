@@ -13,22 +13,71 @@
 #include "get_next_line.h"
 #include <stdio.h>
 
+char *join_line(int nlp, char** buffer)
+{
+    char* tmp;
+    char* res;
+
+    tmp = ft_substr(*buffer, nlp, BUFFER_SIZE);
+    res = *buffer;
+    res[nlp] = 0;
+    *buffer = tmp;
+
+    return res;
+}
+
+char *read_line(int fd, char** buffer, char* tmp)
+{
+    int nbytes;
+    char* nl;
+    char* nstr;
+
+    nbytes = 0;
+    nstr = NULL;
+
+    nl = ft_strchr(*buffer, '\n');
+    while (nl == NULL)
+    {
+        nbytes = read(fd, tmp, BUFFER_SIZE);
+        if (nbytes <= 0)
+        {
+            return join_line(nbytes, buffer);
+        }
+        tmp[nbytes] = 0;
+ 
+        nstr = ft_strjoin(*buffer, tmp);
+        free(*buffer);
+        *buffer = nstr;
+        nl = ft_strchr(*buffer, '\n');
+    }
+    return join_line(nl - *buffer + 1, buffer);
+}
 
 char *get_next_line(int fd)
 {
-    int nbytes;
     char *tmp;
-    char *s;
+    char *res;
+    static char *buffer;
 
-    s = malloc((BUFFER_SIZE + 1)*sizeof(char));
-    nbytes = read(fd, s, BUFFER_SIZE);
-    tmp = ft_strchr(s, '\n');
-    while (tmp == NULL)
+    if (fd < 0 || BUFFER_SIZE <= 0)
     {
-        nbytes = read(fd, s, BUFFER_SIZE);
+        return NULL;
     }
 
-    printf ("%s\n", s);
-    printf ("%d\n", nbytes);
-    return s;
+    tmp = malloc((BUFFER_SIZE + 1)*sizeof(char));
+    
+    if(tmp == NULL)
+    {
+        return NULL;
+    }
+
+    if(!buffer)
+    {
+        buffer = ft_strdup("");
+    }
+
+    res = read_line(fd, &buffer, tmp);
+    free(tmp);
+
+    return res;
 }

@@ -14,7 +14,7 @@
 #define GET_NEXT_LINE_H
 
 #ifndef BUFFER_SIZE
-#define BUFFER_SIZE 1
+#define BUFFER_SIZE 10
 #endif
 
 #include <unistd.h>
@@ -71,5 +71,17 @@ char		*ft_substr(char const *s, unsigned int start, size_t len);
  * @return char* Returns the new string or NULL if the allocation fails.
  */
 char		*ft_strjoin(char const *s1, char const *s2);
+
+/**
+ * @brief Returns a pointer to a new string
+ * which is a duplicate of the string s1.
+ *
+ * @param s1 Pointer to the start of the string do be copied
+ * @return char* On success, returns a pointer to the
+ * duplicated string. It returns NULL if insufficient memory
+ * was available, with errno set to indicate the cause of the
+ * error.
+ */
+char		*ft_strdup(const char *s1);
 
 #endif
