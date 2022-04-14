@@ -18,6 +18,19 @@ char *join_line(int nlp, char** buffer)
     char* tmp;
     char* res;
 
+    if (nlp <= 0)
+    {
+        if(**buffer == 0)
+        {
+            free(*buffer);
+            *buffer = NULL;
+            return NULL;
+        }
+
+        res = *buffer;
+        *buffer = NULL;
+        return res;
+    }
     tmp = ft_substr(*buffer, nlp, BUFFER_SIZE);
     res = *buffer;
     res[nlp] = 0;
