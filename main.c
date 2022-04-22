@@ -32,9 +32,6 @@ int main(void)
 
     printf("%s", teste);
 
-    teste = get_next_line(fd);
-
-    printf("%s", teste);
     
     return 0;
 }
