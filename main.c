@@ -10,28 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include <stdio.h>
 #include <fcntl.h>
 #include "get_next_line.h"
 
-int main(void)
+int	main(void)
 {
-    char* teste;
-    int fd;
-    fd = open("teste", O_RDONLY);
-    teste = get_next_line(fd);
+	char	*teste;
+	int		fd;
 
-    printf("%s", teste);
-
-    teste = get_next_line(fd);
-
-    printf("%s", teste);
-
-    teste = get_next_line(fd);
-
-    printf("%s", teste);
-
-    
-    return 0;
+	fd = open("teste", O_RDONLY);
+	teste = get_next_line(fd);
+	printf("%s", teste);
+	teste = get_next_line(fd);
+	printf("%s", teste);
+	teste = get_next_line(fd);
+	printf("%s", teste);
+	return (0);
 }

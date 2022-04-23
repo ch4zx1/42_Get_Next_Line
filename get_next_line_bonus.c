@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfischer <cfischer@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/09 17:24:35 by cfischer          #+#    #+#             */
-/*   Updated: 2022/04/23 19:21:43 by cfischer         ###   ########.fr       */
+/*   Created: 2022/04/23 18:40:36 by cfischer          #+#    #+#             */
+/*   Updated: 2022/04/23 19:21:25 by cfischer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*join_line(int nlp, char	**buffer)
 {
