@@ -6,7 +6,7 @@
 /*   By: cfischer <cfischer@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 18:40:36 by cfischer          #+#    #+#             */
-/*   Updated: 2022/04/23 19:21:25 by cfischer         ###   ########.fr       */
+/*   Updated: 2022/04/25 17:03:54 by cfischer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	*get_next_line(int fd)
 	char		*res;
 	static char	*buffer[256];
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 256)
 	{
 		return (NULL);
 	}
